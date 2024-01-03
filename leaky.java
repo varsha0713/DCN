@@ -17,21 +17,21 @@ nsec=in.nextInt();
 Random rand = new Random();
 for(i=0;i<nsec;i++)
 packet[i]=(rand.nextInt(1000));
-System.out.println("seconds packets recieved   packets sent  packet left packet dropped");
-		System.out.println("----------------------------------------------------");
+System.out.println("seconds | packets recieved | packets sent | packet left | packet dropped");
+		System.out.println("---------------------------------------------------------------------");
 for(i=0;i<nsec;i++){
 		p_remain+=packet[i];
 		if(p_remain>b_size){
 			drop=p_remain-b_size;
 			p_remain=b_size;
-			System.out.print(i+1+" ");
-			System.out.print(packet[i]+" ");
+			System.out.print(i+1+" \t\t");
+			System.out.print(packet[i]+" \t\t");
 			mini=Math.min(p_remain,o_rate);
-			System.out.print(mini+" ");
+			System.out.print(mini+" \t\t");
 			p_remain=p_remain-mini;
-			System.out.print(p_remain+" ");
-			System.out.print(drop+" ");
-			System.out.println(" ");
+			System.out.print(p_remain+" \t\t");
+			System.out.print(drop+" \t\t");
+			System.out.println(" \t\t");
 			drop=0;
 			}
 		}
@@ -40,9 +40,9 @@ for(i=0;i<nsec;i++){
 			drop=p_remain-b_size;
 		}
 		mini=Math.min(p_remain,o_rate);
-		System.out.print(" "+p_remain+" "+mini);
+		System.out.print(" \t\t"+p_remain+" \t\t"+mini);
 		p_remain=p_remain-mini;
-		System.out.println(" "+p_remain+ " " +drop);
+		System.out.println(" \t\t"+p_remain+ " \t\t" +drop);
 		drop=0;
 		}
 	}
